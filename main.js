@@ -1,6 +1,6 @@
 function getComputerChoice () {
     let randomNumber = Math.random();
-    SET randomChoice TO FLOOR(randomNumber * 3)
+    let randomChoice = Math.floor(randomNumber * 3);
 
     IF randomChoice = 0 THEN
         RETURN "rock"
