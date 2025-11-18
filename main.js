@@ -1,4 +1,4 @@
-FUNCTION getComputerChoice
+function getComputerChoice () {
     SET randomNumber TO random number between 0 and 1
     SET randomChoice TO FLOOR(randomNumber * 3)
 
@@ -9,5 +9,4 @@ FUNCTION getComputerChoice
     ELSE
         RETURN "scissors"
     END IF 
-    
-END FUNCTION
+}
