@@ -9,3 +9,4 @@ function getComputerChoice () {
     } else {
         return "scissors";
     }
+}
