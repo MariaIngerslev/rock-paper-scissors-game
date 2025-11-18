@@ -11,4 +11,10 @@ function getComputerChoice () {
     }
 }
 
-console.log(getComputerChoice());
+FUNCTION getHumanChoice
+
+SET usersInput TO PROMPT("Enter rock, paper, or scissors:")
+
+RETURN usersInput
+
+END FUNCTION
