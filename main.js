@@ -17,4 +17,6 @@ let usersInput = prompt("Enter rock, paper, or scissors");
 return usersInput
 }
 
-console.log(getHumanChoice())
+SET humanScore TO 0
+
+SET computerScore TO 0
