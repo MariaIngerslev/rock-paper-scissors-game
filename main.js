@@ -11,10 +11,10 @@ function getComputerChoice () {
     }
 }
 
-FUNCTION getHumanChoice
+function getHumanChoice() {
 
-SET usersInput TO PROMPT("Enter rock, paper, or scissors:")
+let usersInput = prompt("Enter rock, paper, or scissors");
+return usersInput
+}
 
-RETURN usersInput
-
-END FUNCTION
+console.log(getHumanChoice())
