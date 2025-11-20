@@ -18,5 +18,43 @@ return usersInput
 }
 
 let humanScore = 0
-
 let computerScore = 0
+
+FUNCTION playRound(humanChoice, computerChoice)
+    humanChoice = getHumanChoice()
+    humanChoice = LOWERCASE(humanChoice)
+
+    computerChoice = getComputerChoice()
+
+IF humanChoice EQUALS computerChoice THEN
+    PRINT "It's a tie! Both chose " + humanChoice
+
+ELSE 
+IF humanChoice EQUALS "rock" THEN
+    IF computerChoice EQUALS "scissors" THEN
+    PRINT "You win! Rock beats Scissors"
+    INCREMENT humanScore
+    ELSE
+    PRINT "You lose! Paper beats Rock"
+    INCREMENT computerScore
+ElSE
+IF humanChoice EQUALS "paper" THEN
+    IF computerChoice EQUALS "rock" THEN
+    PRINT "You win! Paper beats Rock"
+    INCREMENT humanScore
+    ELSE
+    PRINT "You lose! Scissors beats Paper"
+    INCREMENT computerScore
+
+ELSE
+IF humanChoice EQUALS "scissors" THEN
+    IF computerChoice EQUALS "paper" THEN
+    PRINT "You win! Scissors beats Paper"
+    INCREMENT humanScore
+    ELSE
+    PRINT "You lose! Rock beats Scissors"
+    INCREMENT computerScore
+ELSE
+    PRINT "Invalid choice! Please choose rock, paper, or scissors."
+
+    END FUNCTION
