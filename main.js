@@ -21,7 +21,7 @@ let computerScore = 0;
 
 function playGame() {
 
-    function playRound() {
+    function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         console.log ("It's a tie! Both chose " + humanChoice);
     } else if (humanChoice === "rock") {
