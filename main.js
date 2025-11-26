@@ -19,10 +19,7 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-FUNCTION PLAYGAME
-
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
+function playGame() {
 
     function playRound() {
     if (humanChoice === computerChoice) {
@@ -57,17 +54,17 @@ FUNCTION PLAYGAME
     }
 }
 
-    FOR 5 TIMES 
-        SET humanChoice TO getHumanChoice()
-        SET computerChoice TO getComputerChoice()
-        CALL playRound(humanChoice, computerChoice)
-    END FOR
+    for (let i = 1; i <= 5; i++) {
+        let humanChoice = getHumanChoice()
+        let computerChoice = getComputerChoice()
+        playRound(humanChoice, computerChoice)
+    }
 
-    IF humanScore > computerScore THEN
-        LOG "You win the game!"
-    ELSE IF computerScore > humanScore THEN
-        LOG "You lose the game!"
-    ELSE THEN
-        LOG "The game ends in a tie!"
-
-END FUNCTION  
+    if (humanScore > computerScore) {
+        console.log("You win the game!");
+    } else if (computerScore > humanScore) {
+        console.log("You lose the game!");
+    } else {
+        console.log("The game ends in a tie!");
+    }
+}
