@@ -7,12 +7,12 @@ This project is a simple Rock–Paper–Scissors game implemented in JavaScript 
 This project is part of The Odin Project Foundations Course. It was created to practice fundamental JavaScript concepts such as functions, conditionals, loops, user input, and browser scripting without using the DOM.
 
 ## Project Structure
-//bash
+```bash
+/rock–paper–scissor-game
 │── index.html
 │── main.js
 │── README.md
-//
-
+```
 
 ## How to Run the Game
 
