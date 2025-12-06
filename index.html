@@ -4,48 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-paper-scissors game</title>
+    <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
 
-<header>
-    <h1 class="title">ROCK PAPER SCISSORS</h1>
-    <h3 class="intro">Play against the computer!</h3>
-</header>
-
 <main>
-    
-    <!-- GAME BUTTONS -->
-    <div class="game-section">
-        <button class="rock-button">ROCK</button>
-        <button class="paper-button">PAPER</button>
-        <button class="scissors-button">SCISSORS</button>
-    </div>
+    <div class="game-wrapper">
 
-     <!-- RESULT BOX -->
-    <div class="result-section">
-        <div class="roundX">Round</div>
-        <div class="round-result"> 
-            <div class="choice">
-                <div class="player-choice"></div>
-                <div class="computer-choice"></div>
-            </div>
-            <div class="arrow-icon"></div>
-            <div class="outcome"></div>
+        <!-- HEADER -->
+        <header>
+            <h1 class="title">ROCK PAPER SCISSORS</h1>
+            <h3 class="intro">Play against the computer!</h3>
+        </header>
+
+        <!-- GAME BUTTONS -->
+        <div class="game-section">
+            <button class="rock-button">✊ ROCK</button>
+            <button class="paper-button">✋ PAPER</button>
+            <button class="scissors-button">✌️ SCISSORS</button>
         </div>
-    </div>  
 
-      <!-- SCOREBOARD --> 
-    <div class="scoreboard">
-        <div class="player-score">Player: 0</div>
-        <div class="computer-score">Computer: 0</div>
+        <!-- RESULT BOX -->
+        <div class="result-section">
+            <div class="round-number roundX">Round</div>
+
+            <div class="round-result">
+                <div class="choices">
+                    <div class="player-choice"></div>
+                    <div class="computer-choice"></div>
+                </div>
+
+                <div class="outcome"></div>
+            </div>
+        </div>
+
+        <!-- SCOREBOARD -->
+        <div class="scoreboard">
+            <div class="player-score">Player: 0</div>
+            <div class="computer-score">Computer: 0</div>
+        </div>
+
+        <button class="reset">RESET GAME</button>
+
     </div>
-    
-    <button class="reset">RESET GAME</button>
-
 </main>
 
 </body>
 </html>
-
-

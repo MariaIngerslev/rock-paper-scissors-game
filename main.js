@@ -90,7 +90,7 @@ resetBtn.addEventListener("click", () => {
 
     playerScoreDiv.textContent = "Player: 0";
     computerScoreDiv.textContent = "Computer: 0";
-    roundDiv.textContent = `Round`;
+    roundDiv.textContent = ``;
     playerChoiceDiv.textContent = "";
     computerChoiceDiv.textContent = "";
     outcomeDiv.textContent = "";

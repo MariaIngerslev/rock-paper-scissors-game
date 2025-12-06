@@ -1,0 +1,149 @@
+/* --------------------------------------------------
+   GLOBAL STYLES
+-------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+/* --------------------------------------------------
+   GAME WRAPPER — whole game box including header
+-------------------------------------------------- */
+.game-wrapper {
+    background: #ffffff;
+    padding: 30px;
+    width: 450px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+header .title {
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+header .intro {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* --------------------------------------------------
+   GAME BUTTONS
+-------------------------------------------------- */
+.game-section {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.game-section button {
+    flex: 1;
+    padding: 14px 0;
+    font-size: 1.05rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #377dff;
+    color: white;
+    transition: 0.25s;
+}
+
+.game-section button:hover {
+    background: #195fdd;
+}
+
+/* --------------------------------------------------
+   RESULT SECTION
+-------------------------------------------------- */
+.result-section {
+    width: 100%;
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.round-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.round-result {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    gap: 30px;
+}
+
+.player-choice,
+.computer-choice {
+    font-size: 1.1rem;
+    min-width: 130px;
+}
+
+/* Outcome text */
+.outcome {
+    font-size: 1.3rem;
+    font-weight: bold;
+    min-height: 28px;
+}
+
+/* --------------------------------------------------
+   SCOREBOARD
+-------------------------------------------------- */
+.scoreboard {
+    width: 100%;
+    background: #0b51e0;
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --------------------------------------------------
+   RESET BUTTON
+-------------------------------------------------- */
+.reset {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background: #ff4d4d;
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.reset:hover {
+    background: #d60000;
+}
