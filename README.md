@@ -1,63 +1,73 @@
-# Rock–Paper–Scissors Game
+## 🔧 Tech Stack  
+![HTML](https://img.shields.io/badge/HTML-5-orange?logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-3-blue?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/Hosted_on-GitHub_Pages-181717?logo=github&logoColor=white)
 
-This project is a simple Rock–Paper–Scissors game implemented in JavaScript and run in the browser console. The game prompts the user for their choice, generates a random computer choice, and plays a five-round match to determine the final winner.
 
-## About This Project
+# Rock Paper Scissors – Web Game
 
-This project is part of The Odin Project Foundations Course. It was created to practice fundamental JavaScript concepts such as functions, conditionals, loops, user input, and browser scripting without using the DOM.
+A simple, interactive **Rock Paper Scissors** game built using **HTML, CSS, and JavaScript**.  
+Play against the computer, track the score, and enjoy a clean UI design.
 
-## Project Structure
+---
+
+## 🚀 Live Demo
+Play the game here:
+
+👉 **https://mariaingerslev.github.io/rock-paper-scissors-game/**
+
+---
+
+## 📸 Screenshot
+
+![Rock Paper Scissors Screenshot](images/rock-paper.scissors.png)
+
+---
+
+## 🎮 Features
+
+- ✊ **Rock**, ✋ **Paper**, ✌️ **Scissors** gameplay  
+- 🧠 Computer generates random choices  
+- 🏆 First to **5 points** wins  
+- 🔢 Displays round number and choices  
+- 🎉 End-game message when someone wins  
+- 🔄 Reset button to restart  
+- 🎨 Clean layout with a centered *game-wrapper*
+
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla JS)**
+
+---
+
+## 📂 Project Structure
 ```bash
 /rock–paper–scissor-game
 │── index.html
+│── style.css
 │── main.js
 │── README.md
 ```
 
-## How to Run the Game
+---
 
-1. Download or clone the repository.
-2. Open `index.html` in any modern web browser.
-3. Open the browser console:
-   - Windows: Ctrl + Shift + J (Chrome) or F12
-   - Mac: Cmd + Option + J
-4. The game starts automatically when the page loads.
-5. When prompted, type **rock**, **paper**, or **scissors**.
+## ▶️ How to Run Locally
 
-## How the Game Works
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MariaIngerslev/rock-paper-scissors-game.git
 
-- The game runs for five rounds.
-- Each round:
-  - You choose via a prompt.
-  - The computer randomly selects rock, paper, or scissors.
-  - The result is displayed in the console.
-- After five rounds, the script declares the final result:
-  - "You win the game!"
-  - "You lose the game!"
-  - "The game ends in a tie!"
+2. cd rock-paper-scissors-game
 
-## Code Overview
+3. Open index.html in your browser.
 
-### getComputerChoice()
-Returns a random choice of "rock", "paper", or "scissors".
+## 💬 About
 
-### getHumanChoice()
-Prompts the user to enter a choice and returns it in lowercase.
+This project is part of **The Odin Project – Foundations Course**.  
+It was built to practice **JavaScript DOM manipulation**, event handling, and general front-end structure (HTML, CSS, and JS working together).
 
-### playRound()
-Plays a single round, logs the result, and updates the scores.
-
-### playGame()
-Runs five rounds and prints the final match result.
-
-## Technologies Used
-
-- JavaScript
-- HTML5
-
-## Future Improvements
-
-- Replace prompt() with buttons and a graphical UI.
-- Display results on the webpage instead of the console.
-- Add styling, animations, or sound effects.
-- Make the game replayable without refreshing the page.
