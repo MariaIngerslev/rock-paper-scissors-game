@@ -21,7 +21,7 @@ Play the game here:
 
 ## 📸 Screenshot
 
-![Rock Paper Scissors Screenshot](images/rock-paper.scissors.png)
+![Rock Paper Scissors Screenshot](images/rock-paper-scissors.png)
 
 ---
 
