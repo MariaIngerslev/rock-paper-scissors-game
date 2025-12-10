@@ -83,6 +83,12 @@ function render({ playerSelection = "", computerSelection = "", result = "" } = 
     elements.outcome.textContent = "Computer wins this round!";
   }
 
+  if (state.gameOver) {
+  disableButtons();
+} else {
+  enableButtons();
+}
+
   updateScores();
 }
 
