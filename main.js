@@ -10,6 +10,21 @@ let state = {
   gameOver: false
 };
 
+// --- DOM CACHE ---
+const elements = {
+  buttons: CHOICES.map((choice) => ({
+    choice,
+    el: document.querySelector(`.${choice}-button`)
+  })),
+  playerChoice: document.querySelector(".player-choice"),
+  computerChoice: document.querySelector(".computer-choice"),
+  outcome: document.querySelector(".outcome"),
+  roundNumber: document.querySelector(".round-number"),
+  playerScore: document.querySelector(".player-score"),
+  computerScore: document.querySelector(".computer-score"),
+  reset: document.querySelector(".reset")
+};
+
 // --- SELECT DOM ELEMENTS --- //
 const rockBtn = document.querySelector(".rock-button");
 const paperBtn = document.querySelector(".paper-button");
