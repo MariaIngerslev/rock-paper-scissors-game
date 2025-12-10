@@ -75,6 +75,15 @@ function render({ playerSelection = "", computerSelection = "", result = "" } = 
   updateScores();
 }
 
+// --- CONTROLLER ---
+function playRound(playerSelection) {
+  if (state.gameOver) return;
+  const computerSelection = getComputerChoice();
+  const result = getRoundResult(playerSelection, computerSelection);
+  applyRoundResult(result);
+  render({ playerSelection, computerSelection, result });
+}
+
 // --- CHECK FOR GAME WINNER --- //
 function checkWinner() {
     if (playerScore === WIN_SCORE) {
