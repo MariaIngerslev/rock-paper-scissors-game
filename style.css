@@ -1,149 +1,228 @@
-/* --------------------------------------------------
-   GLOBAL STYLES
--------------------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+/* Root tokens */
+:root {
+  --sand: #EDEBCC;
+  --rose: #EDCCD2;
+  --mint: #CCE4E0;
+  --teal: #00709E;
+  --olive: #706E49;
+  --burgundy: #700014;
+  --bg: #f5f5f0;
+  --text: #1f1f1f;
+  --muted: #4a4a4a;
+  --radius: 16px;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.06);
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 36px;
+  font-family: "Inter", "Space Grotesk", system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    background: #e6e6e6;
+    margin: 0;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding: 40px;
+    align-items: center;
+    background: radial-gradient(circle at 20% 20%, rgba(237, 236, 204, 0.45), transparent 35%),
+                radial-gradient(circle at 80% 10%, rgba(204, 228, 224, 0.35), transparent 30%),
+                var(--bg);
+    color: var(--text);
+    padding: var(--space-6) var(--space-3);
+    overflow: hidden;
 }
 
-/* --------------------------------------------------
-   GAME WRAPPER — whole game box including header
--------------------------------------------------- */
+/* Card */
 .game-wrapper {
-    background: #ffffff;
-    padding: 30px;
-    width: 450px;
-    border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    width: 520px;        /* fixed width to prevent horizontal shifts */
+    max-width: 520px;
+    min-width: 520px;
+    height: 760px;       /* keeps overall card height static */
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--space-6) var(--space-5);
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    text-align: center;
+    gap: var(--space-5);
+    position: relative;
+    isolation: isolate;
+    flex-shrink: 0;
 }
 
-/* --------------------------------------------------
-   HEADER
--------------------------------------------------- */
+/* Floating gradient glow behind the card (static so the wrapper doesn’t move) */
+.game-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -12%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 112, 158, 0.25), transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(112, 0, 20, 0.18), transparent 38%);
+    filter: blur(48px);
+    z-index: -1;
+    animation: glowPulse 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(1.08); opacity: 0.75; }
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  text-align: center;
+}
 header .title {
-    font-size: 2.4rem;
-    letter-spacing: 2px;
-    margin-bottom: 5px;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  font-size: 1.6rem;
 }
-
 header .intro {
-    font-size: 1.1rem;
-    color: #555;
+  color: var(--muted);
+  font-size: 0.98rem;
 }
 
-/* --------------------------------------------------
-   GAME BUTTONS
--------------------------------------------------- */
+/* Controls */
 .game-section {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
 }
 
 .game-section button {
-    flex: 1;
-    padding: 14px 0;
-    font-size: 1.05rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #377dff;
-    color: white;
-    transition: 0.25s;
+  border: none;
+  border-radius: 12px;
+  padding: var(--space-3) var(--space-2);
+  background: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+    box-shadow: var(--shadow-soft);
+  cursor: pointer;
+    transition: box-shadow 180ms ease, background 200ms ease, filter 200ms ease;
+    will-change: filter;
 }
-
 .game-section button:hover {
-    background: #195fdd;
+    box-shadow: 0 16px 28px rgba(0, 112, 158, 0.28);
+    background: #008ac3;
+    filter: brightness(1.04);
+}
+.game-section button:active {
+    box-shadow: 0 12px 20px rgba(0, 112, 158, 0.22);
+    filter: brightness(0.98);
 }
 
-/* --------------------------------------------------
-   RESULT SECTION
--------------------------------------------------- */
+/* Result section */
 .result-section {
-    width: 100%;
-    background: #fafafa;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: var(--sand);
+  border-radius: 14px;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  min-height: 220px; /* prevents jump when content appears */
 }
-
 .round-number {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--olive);
 }
-
 .round-result {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: grid;
+  gap: var(--space-3);
+  min-height: 140px; /* reserve space for choices + outcome */
 }
-
 .choices {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-    gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
 }
-
 .player-choice,
 .computer-choice {
-    font-size: 1.1rem;
-    min-width: 130px;
+  padding: var(--space-3);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  color: var(--muted);
+  min-height: 64px; /* stable height for text differences */
+  display: flex;
+  align-items: center;
 }
+.player-choice { border-left: 4px solid var(--teal); }
+.computer-choice { border-left: 4px solid var(--olive); }
 
-/* Outcome text */
 .outcome {
-    font-size: 1.3rem;
-    font-weight: bold;
-    min-height: 28px;
+  min-height: 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--burgundy);
 }
 
-/* --------------------------------------------------
-   SCOREBOARD
--------------------------------------------------- */
+/* Scoreboard */
 .scoreboard {
-    width: 100%;
-    background: #0b51e0;
-    color: white;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+.scoreboard > div {
+  background: var(--mint);
+  padding: var(--space-3);
+  border-radius: 12px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-soft);
+}
+.scoreboard .computer-score {
+  background: var(--rose);
+}
+.score-label {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
-/* --------------------------------------------------
-   RESET BUTTON
--------------------------------------------------- */
+/* Reset button */
 .reset {
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    background: #ff4d4d;
-    color: white;
-    cursor: pointer;
-    transition: 0.25s;
+  border: none;
+  border-radius: 999px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--burgundy);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  align-self: center;
+  min-width: 200px;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 14px 24px rgba(112, 0, 20, 0.25);
 }
+.reset:hover { transform: translateY(-1px); }
+.reset:active { transform: translateY(0); }
 
-.reset:hover {
-    background: #d60000;
+/* Utility: subtle divider for small screens */
+@media (max-width: 520px) {
+  .game-wrapper { padding: var(--space-5) var(--space-3); }
+  .game-section { grid-template-columns: 1fr; }
+  .choices { grid-template-columns: 1fr; }
+  .scoreboard { grid-template-columns: 1fr; }
 }
