@@ -95,8 +95,27 @@ function playRound(playerSelection) {
   render({ playerSelection, computerSelection, result });
 }
 
+// --- RESET / CONTROLS ---
+function resetGame() {
+  state = { playerScore: 0, computerScore: 0, roundNumber: 0, gameOver: false };
+  enableButtons();
+  render();
+}
+
+function disableButtons() {
+  elements.buttons.forEach(({ el }) => el && (el.disabled = true));
+}
+
+function enableButtons() {
+  elements.buttons.forEach(({ el }) => el && (el.disabled = false));
+}
+
+
+
 // --- EVENTS ---
 elements.buttons.forEach(({ choice, el }) => {
   if (!el) return;
   el.addEventListener("click", () => playRound(choice));
 });
+
+elements.reset.addEventListener("click", resetGame);
