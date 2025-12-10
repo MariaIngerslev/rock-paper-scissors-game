@@ -25,62 +25,19 @@ const elements = {
   reset: document.querySelector(".reset")
 };
 
-// --- SELECT DOM ELEMENTS --- //
-const rockBtn = document.querySelector(".rock-button");
-const paperBtn = document.querySelector(".paper-button");
-const scissorsBtn = document.querySelector(".scissors-button");
-
-const playerChoiceDiv = document.querySelector(".player-choice");
-const computerChoiceDiv = document.querySelector(".computer-choice");
-const outcomeDiv = document.querySelector(".outcome");
-const roundDiv = document.querySelector(".roundX");
-
-const playerScoreDiv = document.querySelector(".player-score");
-const computerScoreDiv = document.querySelector(".computer-score");
-
-const resetBtn = document.querySelector(".reset");
-
-// --- COMPUTER CHOICE --- //
+// --- PURE LOGIC ---
 function getComputerChoice() {
   const index = Math.floor(Math.random() * CHOICES.length);
   return CHOICES[index];
 }
 
-// --- PLAY ONE ROUND --- //
-function playRound(playerSelection) {
-    if (gameOver) return;
-
-    const computerSelection = getComputerChoice();
-    roundNumber++;
-
- // Update choices in DOM
-    playerChoiceDiv.textContent = `Player chose: ${playerSelection}`;
-    computerChoiceDiv.textContent = `Computer chose: ${computerSelection}`;
-    roundDiv.textContent = `Round ${roundNumber}`;
-
-
-     // Determine winner
-    if (playerSelection === computerSelection) {
-        outcomeDiv.textContent = "It's a tie!";
-    } 
-    else if (
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection === "paper")
-    ) {
-        outcomeDiv.textContent = "You win this round!";
-        playerScore++;
-    } 
-    else {
-        outcomeDiv.textContent = "Computer wins this round!";
-        computerScore++;
-    }
-
-    // Update score display
-    playerScoreDiv.textContent = `Player: ${playerScore}`;
-    computerScoreDiv.textContent = `Computer: ${computerScore}`;
-
-    checkWinner();
+function getRoundResult(player, computer) {
+  if (player === computer) return "tie";
+  const playerWins =
+    (player === "rock" && computer === "scissors") ||
+    (player === "paper" && computer === "rock") ||
+    (player === "scissors" && computer === "paper");
+  return playerWins ? "player" : "computer";
 }
 
 // --- CHECK FOR GAME WINNER --- //
