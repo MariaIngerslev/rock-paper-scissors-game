@@ -1,3 +1,7 @@
+// --- CONFIG ---
+const WIN_SCORE = 5;
+const CHOICES = ["rock", "paper", "scissors"];
+
 // --- SELECT DOM ELEMENTS --- //
 const rockBtn = document.querySelector(".rock-button");
 const paperBtn = document.querySelector(".paper-button");
