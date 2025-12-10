@@ -76,10 +76,10 @@ function playRound(playerSelection) {
 
 // --- CHECK FOR GAME WINNER --- //
 function checkWinner() {
-    if (playerScore === 5) {
+    if (playerScore === WIN_SCORE) {
         outcomeDiv.textContent = "🎉 You win the whole game!";
         gameOver = true;
-    } else if (computerScore === 5) {
+    } else if (computerScore === WIN_SCORE) {
         outcomeDiv.textContent = "💀 Computer wins the game!";
         gameOver = true;
     }
