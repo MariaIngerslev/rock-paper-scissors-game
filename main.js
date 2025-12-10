@@ -86,7 +86,8 @@ function checkWinner() {
     }
 }
 
-// --- BUTTON EVENTS --- //
-rockBtn.addEventListener("click", () => playRound("rock"));
-paperBtn.addEventListener("click", () => playRound("paper"));
-scissorsBtn.addEventListener("click", () => playRound("scissors"));
+// --- EVENTS ---
+elements.buttons.forEach(({ choice, el }) => {
+  if (!el) return;
+  el.addEventListener("click", () => playRound(choice));
+});
