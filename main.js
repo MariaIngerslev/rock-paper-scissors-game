@@ -2,6 +2,14 @@
 const WIN_SCORE = 5;
 const CHOICES = ["rock", "paper", "scissors"];
 
+// --- STATE ---
+let state = {
+  playerScore: 0,
+  computerScore: 0,
+  roundNumber: 0,
+  gameOver: false
+};
+
 // --- SELECT DOM ELEMENTS --- //
 const rockBtn = document.querySelector(".rock-button");
 const paperBtn = document.querySelector(".paper-button");
@@ -16,12 +24,6 @@ const playerScoreDiv = document.querySelector(".player-score");
 const computerScoreDiv = document.querySelector(".computer-score");
 
 const resetBtn = document.querySelector(".reset");
-
-// --- GAME VARIABLES --- //
-let playerScore = 0;
-let computerScore = 0;
-let roundNumber = 0;
-let gameOver = false;
 
 // --- COMPUTER CHOICE --- //
 function getComputerChoice() {
