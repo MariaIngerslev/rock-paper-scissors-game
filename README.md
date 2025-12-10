@@ -130,10 +130,6 @@ This is much easier to maintain and expand.
 
 ## ▶️ How to Run Locally
 
-
-
-## ▶️ How to Run Locally
-
 1. Clone the repository:
    ```bash
    git clone https://github.com/MariaIngerslev/rock-paper-scissors-game.git
