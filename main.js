@@ -40,6 +40,17 @@ function getRoundResult(player, computer) {
   return playerWins ? "player" : "computer";
 }
 
+// --- STATE MUTATION ---
+function applyRoundResult(result) {
+  state.roundNumber += 1;
+  if (result === "player") state.playerScore += 1;
+  if (result === "computer") state.computerScore += 1;
+
+  if (state.playerScore >= WIN_SCORE || state.computerScore >= WIN_SCORE) {
+    state.gameOver = true;
+  }
+}
+
 // --- RENDERING ---
 function updateScores() {
   elements.playerScore.textContent = `Player: ${state.playerScore}`;
@@ -82,17 +93,6 @@ function playRound(playerSelection) {
   const result = getRoundResult(playerSelection, computerSelection);
   applyRoundResult(result);
   render({ playerSelection, computerSelection, result });
-}
-
-// --- CHECK FOR GAME WINNER --- //
-function checkWinner() {
-    if (playerScore === WIN_SCORE) {
-        outcomeDiv.textContent = "🎉 You win the whole game!";
-        gameOver = true;
-    } else if (computerScore === WIN_SCORE) {
-        outcomeDiv.textContent = "💀 Computer wins the game!";
-        gameOver = true;
-    }
 }
 
 // --- EVENTS ---
