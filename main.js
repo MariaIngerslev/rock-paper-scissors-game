@@ -40,6 +40,41 @@ function getRoundResult(player, computer) {
   return playerWins ? "player" : "computer";
 }
 
+// --- RENDERING ---
+function updateScores() {
+  elements.playerScore.textContent = `Player: ${state.playerScore}`;
+  elements.computerScore.textContent = `Computer: ${state.computerScore}`;
+}
+
+function render({ playerSelection = "", computerSelection = "", result = "" } = {}) {
+  elements.roundNumber.textContent =
+    state.roundNumber > 0 ? `Round ${state.roundNumber}` : "Round";
+
+  elements.playerChoice.textContent = playerSelection
+    ? `Player chose: ${playerSelection}`
+    : "";
+
+  elements.computerChoice.textContent = computerSelection
+    ? `Computer chose: ${computerSelection}`
+    : "";
+
+  if (!result) {
+    elements.outcome.textContent = "";
+  } else if (state.gameOver && state.playerScore >= WIN_SCORE) {
+    elements.outcome.textContent = "🎉 You win the whole game!";
+  } else if (state.gameOver && state.computerScore >= WIN_SCORE) {
+    elements.outcome.textContent = "💀 Computer wins the game!";
+  } else if (result === "tie") {
+    elements.outcome.textContent = "It's a tie!";
+  } else if (result === "player") {
+    elements.outcome.textContent = "You win this round!";
+  } else {
+    elements.outcome.textContent = "Computer wins this round!";
+  }
+
+  updateScores();
+}
+
 // --- CHECK FOR GAME WINNER --- //
 function checkWinner() {
     if (playerScore === WIN_SCORE) {
@@ -50,21 +85,6 @@ function checkWinner() {
         gameOver = true;
     }
 }
-
-// --- RESET GAME --- //
-resetBtn.addEventListener("click", () => {
-    playerScore = 0;
-    computerScore = 0;
-    roundNumber = 0;
-    gameOver = false;
-
-    playerScoreDiv.textContent = "Player: 0";
-    computerScoreDiv.textContent = "Computer: 0";
-    roundDiv.textContent = ``;
-    playerChoiceDiv.textContent = "";
-    computerChoiceDiv.textContent = "";
-    outcomeDiv.textContent = "";
-});
 
 // --- BUTTON EVENTS --- //
 rockBtn.addEventListener("click", () => playRound("rock"));
