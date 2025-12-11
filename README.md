@@ -128,6 +128,14 @@ This is much easier to maintain and expand.
 
 ---
 
+## 🧩 Future Improvements
+
+- Add a clear introduction explaining that the game is best out of 5 rounds
+- Create a popup or visual highlight when the game is won or lost to make the state more noticeable
+- Automatically reset the game after ~5 seconds once the final result is shown
+
+---
+
 ## ▶️ How to Run Locally
 
 1. Clone the repository:
